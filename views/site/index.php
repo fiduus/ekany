@@ -1,53 +1,42 @@
 <?php
-
+use yii\widgets\ListView;
+use yii\grid\GridView;
+use yii\helpers\Html;
+use yii\data\ActiveDataProvider;
+use app\models\Status;
+use app\models\StatusSearch;
 /* @var $this yii\web\View */
 
-$this->title =  Yii::t('app','My Yii Application');
+//$this->title =  Yii::t('app','My Yii Application');
 ?>
 <div class="site-index">
-
-    <div class="jumbotron">
-        <h1><?= Yii::t('app','Congratulations!'); ?></h1>
-
-        <p class="lead"><?= Yii::t('app','You have successfully created your Yii-powered application.'); ?></p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+    <div class="jumbot" style="text-align:center;color:darkblue;">
+      <h1><?= Yii::t('app','Welcome in your site'); ?></h1>       
     </div>
 
     <div class="body-content">
 
         <div class="row">
-            <div class="col-lg-4">
-                <h2><?= Yii::t('app','Heading'); ?></h2>
+            <div class="col-lg-12">
+                <h2 style="color:red;"><?= Yii::t('app','Last items'); ?></h2>
 
-                <p><?= Yii::t('app','Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.'); ?></p>
+               <?php
+/* @var $this yii\web\View */
+/* @var $searchModel app\models\StatusSearch */
+/* @var $dataProvider yii\data\ActiveDataProvider */
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2><?= Yii::t('app','Heading'); ?></h2>
-
-                <p><?= Yii::t('app','Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.'); ?></p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2><?= Yii::t('app','Heading'); ?></h2>
-
-                <p><?= Yii::t('app','Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.'); ?></p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
-        </div>
-
+                    $this->title = Yii::t('app','Statuses');
+                    $this->params['breadcrumbs'][] = $this->title;
+                    ?>
+                    <div class="status-index">                     
+                  <?php  echo ListView::widget( [
+                        'dataProvider' => $dataProvider,
+                        'itemView' => '_item',
+                    ] ); ?>                                      
+                                       
+                     </div>     
+                                              
+            </div>          
+          </div>
     </div>
 </div>

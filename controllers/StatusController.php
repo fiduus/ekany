@@ -92,6 +92,13 @@ class StatusController extends Controller
             'model' => $model,
         ]);
     }
+    
+    public function actionList(){
+        $it = new Status();
+        return $this->render('index', [
+            'item' => $item,
+        ]);
+    }
 
     /**
      * Updates an existing Status model.

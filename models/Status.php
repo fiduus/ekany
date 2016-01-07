@@ -31,7 +31,7 @@ class Status extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['message', 'created_at', 'updated_at'], 'required'],
+            [['message', 'created_at', 'updated_at','created_by'], 'required'],
             [['message'], 'string'],
             [['permissions', 'created_at', 'updated_at'], 'integer']
         ];
@@ -48,6 +48,7 @@ class Status extends \yii\db\ActiveRecord
             'permissions' => Yii::t('app', 'Permissions'),
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
+            ('created_by')=> Yii::t('app', 'Created by'),
         ];
     }
     
